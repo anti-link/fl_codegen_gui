@@ -6,7 +6,6 @@ type HmacSha1 = Hmac<Sha1>;
 const CODE_GRANULARITY_MS: u64 = 1000 * 60;
 
 pub fn generate_fl_code(shared_secret: String, custom_timestamp: u64) -> String {
-
     let key = shared_secret.trim();
 
     let timestamp_ms: u64 = custom_timestamp * 1000;
@@ -29,18 +28,10 @@ pub fn generate_fl_code(shared_secret: String, custom_timestamp: u64) -> String 
     let valid_to_ms = valid_from_ms + code_validity_ms;
 
     let code: i32 = result % 1000000;
-    let remaining_sec = (valid_to_ms - timestamp_ms) / 1000;
-    // println!(
-    //     "Expires in: {:02}:{:02} ({} sec)",
-    //     remaining_sec / 60,
-    //     remaining_sec % 60,
-    //     remaining_sec
-    // );
     format!("{:06}", code)
 }
 
 pub fn remaining_time(custom_timestamp: u64) -> u64 {
-
     let timestamp_ms: u64 = custom_timestamp * 1000;
 
     let code_validity_ms = 1000u64 * 60 * 60; // 1 hour
@@ -51,10 +42,9 @@ pub fn remaining_time(custom_timestamp: u64) -> u64 {
     let valid_to_ms = valid_from_ms + code_validity_ms;
 
     let remaining_sec = (valid_to_ms - timestamp_ms) / 1000;
-    
+
     remaining_sec
 }
-
 
 pub fn float_from_time(seconds_left: u64) -> f32 {
     let hours_left = seconds_left as f32 / 3600.0;

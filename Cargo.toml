@@ -11,3 +11,9 @@ hmac = "0.12.1"
 image = "0.24.3"
 regex = "1.10.6"
 sha1 = "0.10.6"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
