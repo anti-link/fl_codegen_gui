@@ -46,7 +46,7 @@ impl Default for MyApp {
         Self {
             shared_secret: "".to_owned(),
             custom_timestamp: false,
-            selected_timestamp: "222".to_string(),
+            selected_timestamp: "0".to_string(),
             validated_selected_timestamp: 0
         }
     }
@@ -57,9 +57,6 @@ impl eframe::App for MyApp {
         let modal = Modal::new(ctx, "my_modal");
         
         modal.show(|ui| {
-            // these helper functions help set the ui based on the modal's
-            // set style, but they are not required and you can put whatever
-            // ui you want inside [`.show()`]
             modal.title(ui, "Error");
             modal.frame(ui, |ui| {
                 modal.body(ui, "Invalid Unix timestamp submitted.");
