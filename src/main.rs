@@ -64,6 +64,7 @@ impl eframe::App for MyApp {
             modal.frame(ui, |ui| {
                 modal.body(ui, "Invalid Unix timestamp submitted.");
             });
+            modal.button(ui, "Close");
         });
 
         if !self.custom_timestamp {
