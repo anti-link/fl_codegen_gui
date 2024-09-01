@@ -8,7 +8,7 @@ use egui::FontFamily::Proportional;
 use codegen::{generate_fl_code, remaining_time, float_from_time};
 use egui_modal::Modal;
 fn main() -> eframe::Result {
-    let icon = include_bytes!("../logo.png");
+    let icon = include_bytes!("../Trollface.png");
     let image = image::load_from_memory(icon).expect("Failed to open icon path").to_rgba8();
     let (icon_width, icon_height) = image.dimensions();
 
